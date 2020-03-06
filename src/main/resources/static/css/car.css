@@ -1,0 +1,8 @@
+body{
+    background-color: ghostwhite;
+}
+.admin-ul{
+    width: max-content;
+    background-color: beige;
+    height: -webkit-fill-available;
+}
