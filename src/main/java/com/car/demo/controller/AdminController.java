@@ -1,5 +1,7 @@
 package com.car.demo.controller;
 
+import com.car.demo.service.UserManageService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class AdminController {
+    @Autowired
+    private UserManageService userManageService;
     @PostMapping("/admin")
     public String PostAdmin(@RequestParam(value = "inputPhone",required = false)Long username,
                           @RequestParam(value = "inputPassword",required = false)String password){
@@ -21,6 +25,7 @@ public class AdminController {
     }
     @GetMapping("/admin")
     public String UserLogin(Model model){
+        model.addAttribute("userInfoDTOS",userManageService.findAll());
         System.out.println("---------gggggggggggg");
         return "admin";
     }

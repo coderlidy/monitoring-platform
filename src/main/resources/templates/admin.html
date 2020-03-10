@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:float="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
@@ -10,9 +10,20 @@
     <title>admin</title>
 </head>
 <body>
-    <div th:insert="navigation :: nav"></div>
-    <div>
-
+    <div th:insert="navigation :: nav" style="float: left"></div>
+    <div style="float: left">
+        <table class="table table-hover">
+            <tr>
+                <th>序号</th><th>手机号</th><th>姓名</th><th>年龄</th><th>权限</th>
+            </tr>
+            <tr th:each="userInfoDTO,a:${userInfoDTOS}">
+                <td th:text="${a.count}"></td>
+                <td th:text="${userInfoDTO.username}"></td>
+                <td th:text="${userInfoDTO.name}"></td>
+                <td th:text="${userInfoDTO.age}"></td>
+                <td th:text="${userInfoDTO.gradeName}"></td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
