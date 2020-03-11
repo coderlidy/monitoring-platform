@@ -22,7 +22,7 @@ public class UserManageService {
             UserInfoDTO userInfoDTO=new UserInfoDTO();
             userInfoDTO.setAge(item.getAge());
             userInfoDTO.setUsername(item.getUsername());
-            userInfoDTO.setGradeName(item.getGrade()==1?"用户":"管理员");
+            userInfoDTO.setGradeName(item.getGrade()==0?"用户":"管理员");
             userInfoDTO.setName(item.getName());
             userInfoDTO.setPassword(item.getPassword());
             // Timestamp -> String

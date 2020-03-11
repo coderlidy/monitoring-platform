@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div id="id01" class="modal" th:fragment="userBox">
+    <form class="modal-content animate" action="/action_page.php">
+        <div class="imgcontainer">
+            <!-- 点击×号，隐藏模态框-->
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        </div>
+        <div class="container">
+            <label><b>手机号</b></label>
+            <input id="usernameID" type="text" placeholder="手机号" name="username" required>
+            <label><b>密码</b></label>
+            <input id="passwordID" type="password" placeholder="密码" name="password" required>
+            <label><b>姓名</b></label>
+            <input id="nameID" type="text" placeholder="姓名" name="name" required>
+            <label><b>年龄</b></label>
+            <input id="ageID" type="text" placeholder="年龄" name="age" required>
+            <label><b>权限</b></label>
+            <input id="gradeID" type="text" placeholder="权限" name="grade" required>
+            <button type="submit">提交</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
