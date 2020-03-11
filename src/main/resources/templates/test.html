@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>弹出小窗口示例</title>
+</head>
+
+<body>
+<a href="javascript:void(0);" onclick="show();return false;">点击弹出小窗口 </a>
+<script type="text/javascript">
+    var isshow=0;//0小窗口没有显示，1小窗口已显
+    function creatediv()
+    {
+        var msgw,msgh,bordercolor;
+        msgw=400;//提示窗口的宽度
+        msgh=505;//提示窗口的高度
+        var sWidth,sHeight;
+        if( top.location == self.location )
+            doc = document;
+        var docElement = doc.documentElement;
+        sWidth=docElement.clientWidth;
+        sHeight = docElement.clientHeight;
+        if( docElement.scrollHeight > sHeight )
+            sHeight = docElement.scrollHeight;
+        var bgObj=document.createElement("div");
+        bgObj.setAttribute('id','bgDiv');
+        bgObj.style.position="absolute";
+        bgObj.style.top="0";
+        bgObj.style.left="0";
+        bgObj.style.background="#777";
+        bgObj.style.filter="progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=25,finishOpacity=75";
+        bgObj.style.opacity="0.6";
+        bgObj.style.width=sWidth + "px";
+        bgObj.style.height=sHeight + "px";
+        bgObj.style.zIndex = "10000";
+        document.body.appendChild(bgObj);
+
+        var msgObj=document.createElement("div");
+        msgObj.setAttribute("id","msgDiv");
+        msgObj.setAttribute("align","center");
+        msgObj.style.position = "absolute";
+        msgObj.style.left = "50%";
+        msgObj.style.background="#fff";
+        msgObj.style.marginLeft = "-200px" ;
+        msgObj.style.top = (document.documentElement.clientHeight/2+document.documentElement.scrollTop-252)+"px";
+        msgObj.style.width = msgw + "px";
+        msgObj.style.height =msgh + "px";
+        msgObj.style.zIndex = "10001";
+        msgObj.innerHTML = "这是弹出的小窗口！<br /><a href=\"javascript:void(0);\" onclick='delWinD();return false;'>点我关闭窗口</a>";
+        document.body.appendChild(msgObj);
+    }
+    function delWinD()
+    {
+        document.getElementById("bgDiv").style.display="none";
+        document.getElementById("msgDiv").style.display="none";
+        isshow=0;
+    }
+    function show()
+    {
+        isshow=1;
+        if(!document.getElementById("msgDiv"))//小窗口不存在
+            creatediv();
+        else
+        {
+            document.getElementById("bgDiv").style.display="";
+            document.getElementById("msgDiv").style.display="";
+            document.getElementById("msgDiv").style.top=(document.documentElement.clientHeight/2+document.documentElement.scrollTop-252)+"px";
+        }
+    }
+</script>
+</body>
