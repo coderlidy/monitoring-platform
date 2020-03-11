@@ -26,8 +26,7 @@ public class AdminController {
     @GetMapping("/admin")
     public String UserLogin(Model model){
         model.addAttribute("userInfoDTOS",userManageService.findAll());
-        System.out.println("---------gggggggggggg");
+        System.out.println(this.getClass().getName());
         return "admin";
     }
-
 }

@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="/css/car.css"/>
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js" type="application/javascript"></script>
-    <title>admin</title>
+    <title>用户管理</title>
 </head>
 <body>
     <div th:insert="navigation :: nav" style="float: left"></div>
     <div style="float: left">
         <table class="table table-hover">
             <tr>
-                <th>序号</th><th>手机号</th><th>姓名</th><th>年龄</th><th>权限</th>
+                <th>序号</th><th>手机号</th><th>姓名</th><th>年龄</th><th>权限</th><th>修改时间</th><th>创建时间</th>
             </tr>
             <tr th:each="userInfoDTO,a:${userInfoDTOS}">
                 <td th:text="${a.count}"></td>
@@ -22,6 +22,8 @@
                 <td th:text="${userInfoDTO.name}"></td>
                 <td th:text="${userInfoDTO.age}"></td>
                 <td th:text="${userInfoDTO.gradeName}"></td>
+                <td th:text="${userInfoDTO.gmtModified}"></td>
+                <td th:text="${userInfoDTO.gmtCreate}"></td>
             </tr>
         </table>
     </div>

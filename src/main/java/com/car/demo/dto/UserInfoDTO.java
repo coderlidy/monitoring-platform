@@ -1,11 +1,31 @@
 package com.car.demo.dto;
 
+import java.sql.Timestamp;
+
 public class UserInfoDTO {
     private Long username;
     private String password;
     private String gradeName;
     private String name;
     private Integer age;
+    private String gmtCreate;
+    private String gmtModified;
+
+    public String getGmtCreate() {
+        return gmtCreate;
+    }
+
+    public void setGmtCreate(String gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public String getGmtModified() {
+        return gmtModified;
+    }
+
+    public void setGmtModified(String gmtModified) {
+        this.gmtModified = gmtModified;
+    }
 
     public Long getUsername() {
         return username;

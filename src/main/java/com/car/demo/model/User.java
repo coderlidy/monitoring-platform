@@ -1,5 +1,7 @@
 package com.car.demo.model;
 
+import java.sql.Timestamp;
+
 public class User {
     private Long id;
     private Long username;
@@ -7,6 +9,24 @@ public class User {
     private Integer grade;
     private String name;
     private Integer age;
+    private Timestamp gmtCreate;
+    private Timestamp gmtModified;
+
+    public Timestamp getGmtCreate() {
+        return gmtCreate;
+    }
+
+    public void setGmtCreate(Timestamp gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public Timestamp getGmtModified() {
+        return gmtModified;
+    }
+
+    public void setGmtModified(Timestamp gmtModified) {
+        this.gmtModified = gmtModified;
+    }
 
     public Long getId() {
         return id;
