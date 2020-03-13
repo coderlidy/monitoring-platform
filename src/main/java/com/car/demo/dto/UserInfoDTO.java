@@ -3,6 +3,7 @@ package com.car.demo.dto;
 import java.sql.Timestamp;
 
 public class UserInfoDTO {
+    private Long id;
     private Long username;
     private String password;
     private String gradeName;
@@ -10,6 +11,14 @@ public class UserInfoDTO {
     private Integer age;
     private String gmtCreate;
     private String gmtModified;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getGmtCreate() {
         return gmtCreate;

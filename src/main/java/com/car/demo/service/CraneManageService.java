@@ -19,6 +19,7 @@ public class CraneManageService {
         List<CraneDTO> craneDTOList=new ArrayList<>();
         for (Crane item:craneList){
             CraneDTO craneDTO=new CraneDTO();
+            craneDTO.setId(item.getId());
             craneDTO.setCarNumber(item.getCarNumber());
             craneDTO.setMaxLiftWeight(item.getMaxLiftWeight());
             craneDTO.setNowWeightCount(item.getNowWeightCount());

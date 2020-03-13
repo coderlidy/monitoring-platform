@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 <div id="id01" class="modal" th:fragment="userBox">
-    <form class="modal-content animate" action="/action_page.php">
+    <form class="modal-content animate">
+    <!--   form不能加提交地址，因为要用ajax-->
         <div class="imgcontainer">
             <!-- 点击×号，隐藏模态框-->
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -18,7 +19,9 @@
             <input id="ageID" type="text" placeholder="年龄" name="age" required>
             <label><b>权限</b></label>
             <input id="gradeID" type="text" placeholder="权限" name="grade" required>
-            <button type="submit">提交</button>
+            <div style="text-align: center"><p style="margin: 0 0 0px">提交成功！</p></div>
+            <button type="button" onclick="userBoxSubmit()">提交</button>
+            <!-- type="button"而不是submit是为了这个表单不自动提交-->
         </div>
     </form>
 </div>

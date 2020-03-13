@@ -20,6 +20,7 @@ public class UserManageService {
         List<UserInfoDTO> userInfoDTOS=new ArrayList<>();
         for(User item:users){
             UserInfoDTO userInfoDTO=new UserInfoDTO();
+            userInfoDTO.setId(item.getId());
             userInfoDTO.setAge(item.getAge());
             userInfoDTO.setUsername(item.getUsername());
             userInfoDTO.setGradeName(item.getGrade()==0?"用户":"管理员");

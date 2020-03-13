@@ -3,7 +3,7 @@ package com.car.demo.model;
 import java.sql.Timestamp;
 
 public class Crane {
-
+    private Long id;
     private Long username;
     private Long carNumber;
     private String carTypeNumber;
@@ -14,6 +14,14 @@ public class Crane {
     private Double nowWeightCount;
     private Double maxWeightCount;
     private Double maxLiftWeight;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Double getNowWeightCount() {
         return nowWeightCount;
