@@ -15,18 +15,20 @@
 <body>
     <div th:insert="navigation :: nav" style="float: left;width: 10%"></div>
     <div th:insert="userBox :: userBox"></div>
-    <button th:onclick="addUser('','','','','')" style="width:auto;">添加用户</button>
+    <button th:onclick="addUser('','','','','','',1)" style="width:auto;">添加用户</button>
     <div style="float: left;width: 90%">
         <table class="table table-hover">
             <tr>
                 <th>序号</th><th>手机号</th><th>姓名</th><th>年龄</th><th>权限</th><th>修改时间</th><th>创建时间</th>
             </tr>
             <tr th:each="userInfoDTO,a:${userInfoDTOS}" th:onclick="addUser(
+            [[${userInfoDTO.id}]],
             [[${userInfoDTO.username}]],
             [[${userInfoDTO.password}]],
             [[${userInfoDTO.name}]],
             [[${userInfoDTO.age}]],
-            [[${userInfoDTO.gradeName}]])">
+            [[${userInfoDTO.gradeName}]],
+            3)">
                 <td th:text="${a.count}"></td>
                 <td th:text="${userInfoDTO.username}"></td>
                 <td th:text="${userInfoDTO.name}"></td>

@@ -1,10 +1,7 @@
 package com.car.demo.mapper;
 
 import com.car.demo.model.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -14,8 +11,12 @@ public interface UserMapper {
     List<User> findAll();
     @Select("select * from user where username = #{username} ")
     User findByUsername(Long username);
-    @Select("select * from user where id = id")
-    User findById(@Param("id")int idTest);//形参名和上面不一样要用@Param
-    @Insert("insert into user (username,password,grade,name,age) values (#{username},#{password},#{grade},#{name},#{age})")
-    void insert(User user);//形参是类不用加@Param
+    @Select("select * from user where id = #{id}")
+    User findById(@Param("id")Long idTest);//形参名和上面不一样要用@Param
+    @Insert("insert into user (username,password,grade,name,age,gmtCreate,gmtModified) values (#{username},#{password},#{grade},#{name},#{age},#{gmtCreate},#{gmtModified})")
+    Integer insert(User user);//形参是类不用加@Param
+    @Update("update user set username=#{username},password=#{password},grade=#{grade},name=#{name},age=#{age},gmtModified=#{gmtModified} where id = #{id}")
+    Integer updateById(User user);
+    @Delete("delete from user where id = #{id}")
+    Integer deleteById(Long id);
 }

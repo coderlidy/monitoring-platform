@@ -1,8 +1,6 @@
 package com.car.demo.controller;
 
-import com.car.demo.dto.UserBoxReturnDTO;
 import com.car.demo.dto.UserInfoDTO;
-import com.car.demo.model.User;
 import com.car.demo.service.UserManageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,14 +24,25 @@ public class AdminController {
 //    }
     @ResponseBody
     @PostMapping("/user/update")
-    public Object modifiedUser(@RequestBody UserInfoDTO userInfoDTO){
-        System.out.println(userInfoDTO.getGradeName());
-        UserBoxReturnDTO userBoxReturnDTO;
-        userBoxReturnDTO=new UserBoxReturnDTO(1,"修改成功!");
-
-        System.out.println(this.getClass().getName());
-        return userBoxReturnDTO;
+    public Object updateUser(@RequestBody UserInfoDTO userInfoDTO){
+        System.out.println(this.getClass().getName()+"."+Thread.currentThread() .getStackTrace()[1].getMethodName());
+        return userManageService.updateOrInsertById(userInfoDTO);
     }
+    @ResponseBody
+    @PostMapping("/user/insert")
+    public Object insertUser(@RequestBody UserInfoDTO userInfoDTO){
+        System.out.println(userInfoDTO.getId());
+        System.out.println(this.getClass().getName()+"."+Thread.currentThread() .getStackTrace()[1].getMethodName());
+        return userManageService.updateOrInsertById(userInfoDTO);
+    }
+    @ResponseBody
+    @PostMapping("/user/delete")
+    public Object deleteUser(@RequestBody UserInfoDTO userInfoDTO){
+        System.out.println(userInfoDTO.getId());
+        System.out.println(this.getClass().getName()+"."+Thread.currentThread() .getStackTrace()[1].getMethodName());
+        return userManageService.deleteById(userInfoDTO.getId());
+    }
+
 
     @GetMapping("/admin")
     public String UserLogin(Model model){
