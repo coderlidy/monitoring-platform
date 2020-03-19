@@ -1,9 +1,9 @@
 package com.car.demo.dto;
 
-public class UserBoxReturnDTO {
-    private int ifSuccess;
+public class ResultReturnDTO {
+    private int ifSuccess;//1成功2失败
     private String message;
-    public UserBoxReturnDTO(int ifSuccess,String message){
+    public ResultReturnDTO(int ifSuccess, String message){
         this.ifSuccess=ifSuccess;
         this.message=message;
     }

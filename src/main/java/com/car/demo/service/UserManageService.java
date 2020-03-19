@@ -1,10 +1,9 @@
 package com.car.demo.service;
 
-import com.car.demo.dto.UserBoxReturnDTO;
+import com.car.demo.dto.ResultReturnDTO;
 import com.car.demo.dto.UserInfoDTO;
 import com.car.demo.mapper.UserMapper;
 import com.car.demo.model.User;
-import org.apache.catalina.startup.UserConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +34,7 @@ public class UserManageService {
         }
         return userInfoDTOS;
     }
-    public UserBoxReturnDTO updateOrInsertById(UserInfoDTO userInfoDTO){
+    public ResultReturnDTO updateOrInsertById(UserInfoDTO userInfoDTO){
         User user=new User();
         user.setUsername(userInfoDTO.getUsername());
         user.setPassword(userInfoDTO.getPassword());
@@ -47,16 +46,16 @@ public class UserManageService {
             //insert
             user.setGmtCreate(new Timestamp(System.currentTimeMillis()));
             userMapper.insert(user);
-            return new UserBoxReturnDTO(1,"添加成功!");
+            return new ResultReturnDTO(1,"添加成功!");
         }else {
             //update
             user.setId(userInfoDTO.getId());
             userMapper.updateById(user);
-            return new UserBoxReturnDTO(1,"修改成功!");
+            return new ResultReturnDTO(1,"修改成功!");
         }
     }
-    public UserBoxReturnDTO deleteById(Long id){
+    public ResultReturnDTO deleteById(Long id){
         userMapper.deleteById(id);
-        return new UserBoxReturnDTO(1,"删除成功!");
+        return new ResultReturnDTO(1,"删除成功!");
     }
 }

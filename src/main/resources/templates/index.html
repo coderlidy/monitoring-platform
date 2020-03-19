@@ -8,19 +8,21 @@
     <link rel="stylesheet" href="/css/car.css"/>
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/js/login.js"></script>
 </head>
 <body>
+<h2 class="form-signin-heading" style="text-align: center;">起重机监控后台管理</h2>
     <div class="container">
-        <form class="form-signin" action="/admin" method="post">
-            <h2 class="form-signin-heading">起重机监控后台管理</h2>
-            <input oninput="value=value.replace(/[^\d]/g,'')" type="text" id="inputPhone" class="form-control" placeholder="手机号" required autofocus>
+        <form class="form-signin container" style="width: 30%;">
+            <input oninput="value=value.replace(/[^\d]/g,'')" type="text" id="inputUsername" class="form-control" placeholder="手机号" required autofocus>
             <input type="password" id="inputPassword" class="form-control" placeholder="密码" required>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" value="remember-me"> 记住我
                 </label>
+                <label id="resultId"></label>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+            <button class="btn btn-lg btn-primary btn-block" type="button" onclick="login()">登录</button>
         </form>
     </div> <!-- /container -->
 

@@ -1,7 +1,7 @@
 package com.car.demo.service;
 
 import com.car.demo.dto.CraneDTO;
-import com.car.demo.dto.UserBoxReturnDTO;
+import com.car.demo.dto.ResultReturnDTO;
 import com.car.demo.mapper.CraneMapper;
 import com.car.demo.mapper.UserMapper;
 import com.car.demo.model.Crane;
@@ -40,7 +40,7 @@ public class CraneManageService {
         }
         return craneDTOList;
     }
-    public UserBoxReturnDTO updateOrInsertById(CraneDTO craneDTO){
+    public ResultReturnDTO updateOrInsertById(CraneDTO craneDTO){
         Crane crane=new Crane();
         crane.setUsername(craneDTO.getUsername());
         crane.setBirthday(Timestamp.valueOf(craneDTO.getBirthday()+" 10:30:40"));
@@ -55,16 +55,16 @@ public class CraneManageService {
             //insert
             crane.setGmtCreate(new Timestamp(System.currentTimeMillis()));
             craneMapper.insert(crane);
-            return new UserBoxReturnDTO(1,"添加成功!");
+            return new ResultReturnDTO(1,"添加成功!");
         }else {
             //update
             crane.setId(craneDTO.getId());
             craneMapper.updateById(crane);
-            return new UserBoxReturnDTO(1,"修改成功!");
+            return new ResultReturnDTO(1,"修改成功!");
         }
     }
-    public UserBoxReturnDTO deleteById(Long id){
+    public ResultReturnDTO deleteById(Long id){
         craneMapper.deleteById(id);
-        return new UserBoxReturnDTO(1,"删除成功!");
+        return new ResultReturnDTO(1,"删除成功!");
     }
 }
