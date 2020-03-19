@@ -13,10 +13,11 @@
 </head>
 
 <body>
-    <div th:insert="navigation :: nav" style="float: left;width: 10%"></div>
+    <div th:insert="navigation :: nav" style="float: left;"></div>
     <div th:insert="userBox :: userBox"></div>
-    <button th:onclick="addUser('','','','','','',1)" style="width:auto;">添加用户</button>
-    <div style="float: left;width: 90%">
+
+    <div style="float: left;padding-left: 10px;">
+        <button th:onclick="addUser('','','','','','',1)" style="width:auto;">添加用户</button>
         <table class="table table-hover">
             <tr>
                 <th>序号</th><th>手机号</th><th>姓名</th><th>年龄</th><th>权限</th><th>修改时间</th><th>创建时间</th>

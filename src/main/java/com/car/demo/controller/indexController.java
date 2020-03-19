@@ -23,12 +23,12 @@ public class indexController {
                 System.out.println(item.getUsername());
             }
         }
-        User h2=userMapper.findByUsername(123L);
-        if(h2==null){
-            System.out.println("nulllllllllllllllllll");
-        }else {
-            System.out.println(h2.getName());
-        }
+//        User h2=userMapper.findByUsername(123L);
+//        if(h2==null){
+//            System.out.println("nulllllllllllllllllll");
+//        }else {
+//            System.out.println(h2.getName());
+//        }
         return "index";
     }
 }

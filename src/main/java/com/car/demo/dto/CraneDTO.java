@@ -4,6 +4,7 @@ package com.car.demo.dto;
 public class CraneDTO {
     private Long id;
     private Long username;
+    private String name;
     private Long carNumber;
     private String carTypeNumber;
     private String birthday;
@@ -13,6 +14,14 @@ public class CraneDTO {
     private Double nowWeightCount;
     private Double maxWeightCount;
     private Double maxLiftWeight;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Long getId() {
         return id;

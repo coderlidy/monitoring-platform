@@ -9,8 +9,8 @@ import java.util.List;
 public interface UserMapper {
     @Select("select * from user")
     List<User> findAll();
-    @Select("select * from user where username = #{username} ")
-    User findByUsername(Long username);
+    @Select("select name from user where username = #{username} ")
+    String findNameByUsername(Long username);
     @Select("select * from user where id = #{id}")
     User findById(@Param("id")Long idTest);//形参名和上面不一样要用@Param
     @Insert("insert into user (username,password,grade,name,age,gmtCreate,gmtModified) values (#{username},#{password},#{grade},#{name},#{age},#{gmtCreate},#{gmtModified})")
@@ -19,4 +19,5 @@ public interface UserMapper {
     Integer updateById(User user);
     @Delete("delete from user where id = #{id}")
     Integer deleteById(Long id);
+
 }

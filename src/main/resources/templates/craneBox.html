@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div id="id01" class="modal" th:fragment="craneBox">
+    <form class="modal-content animate">
+    <!--   form不能加提交地址，因为要用ajax-->
+        <div class="imgcontainer">
+            <!-- 点击×号，隐藏模态框-->
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        </div>
+        <div class="container">
+            <label><b>起重机编号</b></label>
+            <input id="carNumberId" type="text" placeholder="起重机编号" name="carNumber" required>
+            <label><b>起重机类型</b></label>
+            <input id="carTypeNumberId" type="text" placeholder="起重机类型" name="carTypeNumber" required>
+            <label><b>手机号</b></label>
+            <input id="usernameId" type="text" placeholder="手机号" name="username" required>
+            <label><b>最大起吊重量</b></label>
+            <input id="maxLiftWeightId" type="text" placeholder="最大起吊重量" name="maxLiftWeight" required>
+            <label><b>累计起吊重量</b></label>
+            <input id="nowWeightCountId" type="text" placeholder="累计起吊重量" name="nowWeightCount" required>
+            <label><b>维修保养量程额度</b></label>
+            <input id="maxWeightCountId" type="text" placeholder="维修保养量程额度" name="maxWeightCount" required>
+            <label><b>出厂日期</b></label>
+            <input id="birthdayId" type="text" placeholder="出厂日期" name="birthday" required>
+            <label><b>使用日期</b></label>
+            <input id="useDayId" type="text" placeholder="使用日期" name="useDay" required>
+            <button type="button" onclick="craneBoxUpdate()">提交</button>
+            <button id="btnUserBoxDelete" type="button" onclick="craneBoxDelete()" STYLE="display: none">删除起重机</button>
+            <!-- type="button"而不是submit是为了这个表单不自动提交-->
+        </div>
+    </form>
+</div>
+</body>
+</html>
