@@ -1,5 +1,7 @@
 package com.car.demo.dto;
 
+import lombok.Data;
+
 public class LoginDTO {
     private Long username;
     private String password;
