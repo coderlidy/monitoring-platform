@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-public class indexController {
+public class IndexController {
     @Autowired
     private UserMapper userMapper;
     @GetMapping("/")

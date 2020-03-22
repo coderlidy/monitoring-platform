@@ -24,6 +24,9 @@ public class InterceptorHandle implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
         System.out.println("开始拦截.........");
+        System.out.println("访问的Url中的服务器IP："+request.getServerName());
+        System.out.println("用户客户端的IP地址："+request.getRemoteAddr());
+
         Cookie[] cookies =request.getCookies();
         int flag=0;
         String password=null;

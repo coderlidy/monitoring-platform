@@ -20,11 +20,11 @@ public class LoginController {
     private UserMapper userMapper;
     @Autowired
     private PasswordCodeService passwordCodeService;
+    private static int cookieMaxAge=60*60*24;
     @PostMapping("/login")
     @ResponseBody
     private Object login(@RequestBody LoginDTO loginDTO, HttpServletResponse response){
         if(userMapper.findPasswordByUsername(loginDTO.getUsername()).equals(loginDTO.getPassword())){
-            int cookieMaxAge=60;
             //添加加密cookie
             Cookie cookieUsername=new Cookie("loginUsername",String.valueOf(loginDTO.getUsername()));
             cookieUsername.setMaxAge(cookieMaxAge);
