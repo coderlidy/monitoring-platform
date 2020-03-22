@@ -10,8 +10,6 @@ import org.springframework.context.annotation.ImportResource;
 @ImportResource("classpath:springAop.xml")
 @SpringBootApplication
 public class CarApplication {
-    @Autowired
-    private AdviceService adviceService;
     public static void main(String[] args) {
         SpringApplication.run(CarApplication.class, args);
     }

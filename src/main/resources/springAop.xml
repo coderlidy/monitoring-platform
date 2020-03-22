@@ -4,27 +4,10 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:aop="http://www.springframework.org/schema/aop"
         xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-        http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-    <!-- 声明一个业务类 -->
-    <bean id="userManager" class="com.car.demo.controller.AdviceServiceImpl">
-        <property name="name" value="lixiaoxi"></property>
-    </bean>
-
-    <!-- 声明通知类 -->
-    <bean id="aspectBean" class="com.car.demo.controller.AopAspect" />
-
-    <aop:config>
-        <aop:aspect ref="aspectBean">
-            <aop:pointcut id="pointcut" expression="execution(* com.car.demo.controller.AdviceServiceImpl..*(..))"/>
-
-            <aop:before method="doBefore" pointcut-ref="pointcut"/>
-            <aop:after-returning method="doAfterReturning" pointcut-ref="pointcut" returning="result"/>
-            <aop:after method="doAfter" pointcut-ref="pointcut" />
-            <aop:around method="doAround" pointcut-ref="pointcut"/>
-            <aop:after-throwing method="doAfterThrowing" pointcut-ref="pointcut" throwing="ex"/>
-        </aop:aspect>
-    </aop:config>
+    <!-- 声明spring对@AspectJ的支持 -->
+    <aop:aspectj-autoproxy/>
 </beans>
