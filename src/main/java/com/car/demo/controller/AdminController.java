@@ -1,7 +1,6 @@
 package com.car.demo.controller;
 
-import com.car.demo.dto.UserInfoDTO;
-import com.car.demo.mapper.UserMapper;
+import com.car.demo.dto.UserDTO;
 import com.car.demo.service.UserManageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,29 +13,29 @@ public class AdminController {
     private UserManageService userManageService;
     @ResponseBody
     @PostMapping("/user/update")
-    public Object updateUser(@RequestBody UserInfoDTO userInfoDTO){
+    public Object updateUser(@RequestBody UserDTO userDTO){
         System.out.println(this.getClass().getName()+"."+Thread.currentThread() .getStackTrace()[1].getMethodName());
-        return userManageService.updateOrInsertById(userInfoDTO);
+        return userManageService.updateOrInsertById(userDTO);
     }
     @ResponseBody
     @PostMapping("/user/insert")
-    public Object insertUser(@RequestBody UserInfoDTO userInfoDTO){
-        System.out.println(userInfoDTO.getId());
+    public Object insertUser(@RequestBody UserDTO userDTO){
+        System.out.println(userDTO.getId());
         System.out.println(this.getClass().getName()+"."+Thread.currentThread() .getStackTrace()[1].getMethodName());
-        return userManageService.updateOrInsertById(userInfoDTO);
+        return userManageService.updateOrInsertById(userDTO);
     }
     @ResponseBody
     @PostMapping("/user/delete")
-    public Object deleteUser(@RequestBody UserInfoDTO userInfoDTO){
-        System.out.println(userInfoDTO.getId());
+    public Object deleteUser(@RequestBody UserDTO userDTO){
+        System.out.println(userDTO.getId());
         System.out.println(this.getClass().getName()+"."+Thread.currentThread() .getStackTrace()[1].getMethodName());
-        return userManageService.deleteById(userInfoDTO.getId());
+        return userManageService.deleteById(userDTO.getId());
     }
 
 
     @GetMapping("/admin")
-    public String UserLogin(Model model){
-        model.addAttribute("userInfoDTOS",userManageService.findAll());
+    public String findAllUser(Model model){
+        model.addAttribute("userDTOS",userManageService.findAll());
         System.out.println(this.getClass().getName());
         return "admin";
     }

@@ -22,21 +22,21 @@
             <tr>
                 <th>序号</th><th>手机号</th><th>姓名</th><th>年龄</th><th>权限</th><th>修改时间</th><th>创建时间</th>
             </tr>
-            <tr th:each="userInfoDTO,a:${userInfoDTOS}" th:onclick="addUser(
-            [[${userInfoDTO.id}]],
-            [[${userInfoDTO.username}]],
-            [[${userInfoDTO.password}]],
-            [[${userInfoDTO.name}]],
-            [[${userInfoDTO.age}]],
-            [[${userInfoDTO.gradeName}]],
+            <tr th:each="userDTO,a:${userDTOS}" th:onclick="addUser(
+            [[${userDTO.id}]],
+            [[${userDTO.username}]],
+            [[${userDTO.password}]],
+            [[${userDTO.name}]],
+            [[${userDTO.age}]],
+            [[${userDTO.gradeName}]],
             3)">
                 <td th:text="${a.count}"></td>
-                <td th:text="${userInfoDTO.username}"></td>
-                <td th:text="${userInfoDTO.name}"></td>
-                <td th:text="${userInfoDTO.age}"></td>
-                <td th:text="${userInfoDTO.gradeName}"></td>
-                <td th:text="${userInfoDTO.gmtModified}"></td>
-                <td th:text="${userInfoDTO.gmtCreate}"></td>
+                <td th:text="${userDTO.username}"></td>
+                <td th:text="${userDTO.name}"></td>
+                <td th:text="${userDTO.age}"></td>
+                <td th:text="${userDTO.gradeName}"></td>
+                <td th:text="${userDTO.gmtModified}"></td>
+                <td th:text="${userDTO.gmtCreate}"></td>
             </tr>
         </table>
     </div>

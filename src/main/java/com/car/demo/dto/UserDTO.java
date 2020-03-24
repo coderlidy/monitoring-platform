@@ -2,7 +2,7 @@ package com.car.demo.dto;
 
 import java.sql.Timestamp;
 
-public class UserInfoDTO {
+public class UserDTO {
     private Long id;
     private Long username;
     private String password;

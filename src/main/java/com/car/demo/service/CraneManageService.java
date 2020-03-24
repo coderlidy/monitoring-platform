@@ -19,24 +19,13 @@ public class CraneManageService {
     private CraneMapper craneMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private ConvertService convertService;
     public List<CraneDTO> findAll(){
         List<Crane> craneList=craneMapper.findAll();
         List<CraneDTO> craneDTOList=new ArrayList<>();
         for (Crane item:craneList){
-            CraneDTO craneDTO=new CraneDTO();
-            craneDTO.setId(item.getId());
-            craneDTO.setCarNumber(item.getCarNumber());
-            craneDTO.setMaxLiftWeight(item.getMaxLiftWeight());
-            craneDTO.setNowWeightCount(item.getNowWeightCount());
-            craneDTO.setUsername(item.getUsername());
-            craneDTO.setName(userMapper.findNameByUsername(item.getUsername()));
-            craneDTO.setMaxWeightCount(item.getMaxWeightCount());
-            craneDTO.setCarTypeNumber(item.getCarTypeNumber());
-            craneDTO.setBirthday(new SimpleDateFormat("yyyy-MM-dd").format(item.getBirthday()));
-            craneDTO.setGmtCreate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(item.getGmtCreate()));
-            craneDTO.setGmtModified(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(item.getGmtModified()));
-            craneDTO.setUseDay(new SimpleDateFormat("yyyy-MM-dd").format(item.getUseDay()));
-            craneDTOList.add(craneDTO);
+            craneDTOList.add(convertService.craneToCraneDTO(item));
         }
         return craneDTOList;
     }

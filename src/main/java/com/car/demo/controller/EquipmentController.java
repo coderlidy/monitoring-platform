@@ -18,7 +18,6 @@ public class EquipmentController {
     @GetMapping("/equipment")
     public String EquipmentList(Model model){
         model.addAttribute("craneDTOList",craneManageService.findAll());
-        System.out.println(this.getClass().getName());
         return "equipment";
     }
     @ResponseBody
