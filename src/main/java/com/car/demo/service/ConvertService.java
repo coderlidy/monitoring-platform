@@ -1,14 +1,20 @@
 package com.car.demo.service;
 
+import com.alibaba.fastjson.JSON;
 import com.car.demo.dto.CraneDTO;
+import com.car.demo.dto.CranenowDTO;
 import com.car.demo.dto.UserDTO;
+import com.car.demo.mapper.CraneMapper;
 import com.car.demo.mapper.UserMapper;
 import com.car.demo.model.Crane;
+import com.car.demo.model.Cranenow;
+import com.car.demo.model.Position;
 import com.car.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 @Service
 public class ConvertService {
@@ -47,5 +53,15 @@ public class ConvertService {
         userDTO.setGmtCreate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(user.getGmtCreate()));
         userDTO.setGmtModified(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(user.getGmtModified()));
         return userDTO;
+    }
+    public CranenowDTO cranenowToCranenowDTO(Cranenow cranenow){
+        CranenowDTO cranenowDTO=new CranenowDTO();
+        cranenowDTO.setId(cranenow.getId());
+        cranenowDTO.setCarNumber(cranenow.getCarNumber());
+        cranenowDTO.setGmtCreate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cranenow.getGmtCreate()));
+        cranenowDTO.setGmtModified(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cranenow.getGmtModified()));
+        cranenowDTO.setNowWeight(cranenow.getNowWeight());
+        cranenowDTO.setPositions(JSON.parseArray(cranenow.getPositions(),Position.class));
+        return cranenowDTO;
     }
 }

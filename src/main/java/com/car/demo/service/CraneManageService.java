@@ -32,8 +32,8 @@ public class CraneManageService {
     public ResultReturnDTO updateOrInsertById(CraneDTO craneDTO){
         Crane crane=new Crane();
         crane.setUsername(craneDTO.getUsername());
-        crane.setBirthday(Timestamp.valueOf(craneDTO.getBirthday()+" 10:30:40"));
-        crane.setUseDay(Timestamp.valueOf(craneDTO.getUseDay()+" 10:30:40"));
+        crane.setBirthday(Timestamp.valueOf(craneDTO.getBirthday()+" 00:00:00"));
+        crane.setUseDay(Timestamp.valueOf(craneDTO.getUseDay()+" 00:00:00"));
         crane.setCarNumber(craneDTO.getCarNumber());
         crane.setCarTypeNumber(craneDTO.getCarTypeNumber());
         crane.setMaxLiftWeight(craneDTO.getMaxLiftWeight());

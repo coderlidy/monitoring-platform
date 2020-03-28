@@ -10,8 +10,10 @@ import java.util.List;
 public interface CraneMapper {
     @Select("select * from crane")
     List<Crane> findAll();
-    @Select("select * from crane where username = #{username} ")
+    @Select("select * from crane where username = #{username}")
     Crane findByUsername(Long username);
+    @Select("select maxWeightCount from crane where username = #{username}")
+    Double findMaxWeightCountByUsername(Long username);
     @Insert("insert into crane (carNumber,carTypeNumber,username,maxLiftWeight,nowWeightCount,maxWeightCount,birthday,useDay,gmtCreate,gmtModified) values (#{carNumber},#{carTypeNumber},#{username},#{maxLiftWeight},#{nowWeightCount},#{maxWeightCount},#{birthday},#{useDay},#{gmtCreate},#{gmtModified})")
     Integer insert(Crane crane);//形参是类不用加@Param
     @Update("update crane set carNumber=#{carNumber},carTypeNumber=#{carTypeNumber},username=#{username},maxLiftWeight=#{maxLiftWeight},nowWeightCount=#{nowWeightCount},maxWeightCount=#{maxWeightCount},birthday=#{birthday},useDay=#{useDay},gmtModified=#{gmtModified} where id = #{id}")
