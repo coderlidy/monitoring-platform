@@ -1,23 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:float="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/css/userBox.css">
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <title>用户管理</title>
+
 </head>
 <body>
-<button onclick="te()">带带</button>
-</body>
-</html>
-<script>
-    var a={"ifSuccess":0,"message":"手机号或密码错误!"};
+<div style="width: 100%">
+    <!-- 左侧菜单栏 -->
+    <div id="main-container">
+        <div id="sidebar" class="col-md-2 column">
+            <!-- 创建菜单树 -->
+            <div class="col-md-12">
+                <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
+                    <li>
+                        <a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-cog"></i>index
+                            <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                        <ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                            <li><a href="#" onclick="menuClick('${base}toViewInfo?id=${s.id}')"><i class="glyphicon glyphicon-user"></i>aaa</a></li>
+                            <li><a href="#" onclick="menuClick('${base}toTestList')"><i class="glyphicon glyphicon-th-list"></i>bbb</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#systemSetting1" class="nav-header collapsed" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-cog"></i>index1
+                            <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                        <ul id="systemSetting1" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                            <li><a href="#"><i class="glyphicon glyphicon-asterisk"></i>ccc</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-edit"></i>ddd</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-eye-open"></i>eee</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10 column">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <!-- 面包屑导航 -->
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="${base}toLoginIndex">Home</a>
+                    </li>
+                    <li class="active">Dashboard</li>
+                </ul>
+            </div>
 
-    function te() {
-        console.log(a);
-        console.log(a.ifSuccess);
-        var b=JSON.stringify(a);
-        console.log(JSON.parse(b).ifSuccess);
-        if(a.ifSuccess==0){
-            console.log("haoa");
-        }
-    }
+            <!-- 内容展示页 -->
+            <div>
+                <iframe id="iframe-page-content" src="${base}resource/html/myindex.jsp" width="100%"  frameborder="no" border="0" marginwidth="0"
+
+                        marginheight=" 0" scrolling="no" allowtransparency="yes"></iframe>
+            </div>
+        </div><!-- /.main-content -->
+    </div><!-- /.main-container -->
+</div>
+</body>
+<script type="text/javascript">
+    $(function() {
+        var height=document.documentElement.clientHeight;
+        document.getElementById('iframe-page-content').style.height=height+'px';
+    });
+    var menuClick = function(menuUrl) {
+        $("#iframe-page-content").attr('src',menuUrl);
+    };
 </script>

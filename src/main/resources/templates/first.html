@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap布局</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet" media="screen">
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    body{
+        margin:0;
+        padding:0;
+        font-family: Lato,Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        line-height: 1.72222;
+        color: #34495e;
+        background-color: #fff;
+    }
+    .wrap {
+        min-width: 100%;
+        position: absolute;
+        background: #eff3f6 bottom;
+        min-height: 100%;
+        overflow: hidden;
+    }
+    .left{
+        margin-left:0px;
+        position: absolute;
+        box-sizing: border-box;
+        width: 200px;
+        height: 100%;
+        background: #4d5e70 bottom;
+    }
+    .logoDiv{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        height: 70px;
+        background-color: #354457;
+        font-size: 17px;
+        color: #fff;
+        vertical-align: bottom;
+    }
+    .logoTitle{
+        margin-left:15px;
+        line-height: 1.7;
+    }
+    .menu-title {
+        margin-left:15px;
+        color: #828e9a;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .menu-item {
+        padding-left:15px;
+        line-height: 40px;
+        height: 40px;
+        color: #aab1b7;
+        cursor: pointer;
+    }
+    .menu-item-active {
+        background-color: #3d4e60;
+        border-right: 4px solid #647f9d;
+        color: #fff;
+    }
+    .right{
+        box-sizing: border-box;
+        float: left;
+        box-sizing: border-box;
+        padding-left: 200px;
+        overflow-y: overlay;
+        overflow-x: hidden;
+        clear: both;
+        color: #717592;
+        min-width: 100%;
+        min-height: 500px;
+    }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <!-- 左边内容 -->
+    <div id="left" class="left">
+<!--        <div id="logoDiv" class="logoDiv">-->
+<!--            <p id="logoTitle" class="logoTitle">-->
+<!--                <img id="logo" alt="左右布局" src="http://tool.what21.com/page/image/menu/cf.png"-->
+<!--                     style="height: 28px; padding-right: 5px;vertical-align: middle;">-->
+<!--                <span style="font-size:18px;">左右布局</span>-->
+<!--            </p>-->
+<!--        </div>-->
+        <div class="menu-title">数据可视</div>
+        <div class="menu-item" onclick="toIframe('/map')">
+            －位置地图
+        </div>
+        <div class="menu-title">数据管理</div>
+        <div class="menu-item" onclick="toIframe('/equipment')" >
+            －用户管理
+        </div>
+        <div class="menu-item" onclick="toIframe('/log')">
+            －日志管理
+        </div>
+    </div>
+    <!-- 右边内容 -->
+    <div id="right" class="tab-content right">
+        <!-- 内容展示页 -->
+        <div>
+            <iframe id="iframe-page-content" src="/admin" width="100%"  frameborder="no" border="0" marginwidth="0"
+                    marginheight=" 0" scrolling="no" allowtransparency="yes"></iframe>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    //设置导航栏点击样式
+    $(function() {
+        $(".menu-item").click(function() {
+            $(".menu-item").removeClass("menu-item-active");
+            $(this).addClass("menu-item-active");
+            var itmeObj = $(".menu-item").find("img");
+            itmeObj.each(function() {
+                var items = $(this).attr("src");
+                items = items.replace("_grey.png", ".png");
+                items = items.replace(".png", "_grey.png")
+                $(this).attr("src", items);
+            });
+            var attrObj = $(this).find("img").attr("src");;
+            //attrObj = attrObj.replace("_grey.png", ".png");
+            $(this).find("img").attr("src", attrObj);
+        });
+    });
+    //为了保证iframe中右侧页面的高度，使之和浏览器客户端高度一致
+    $(function() {
+        document.getElementById('iframe-page-content').style.height=document.documentElement.clientHeight+'px';
+    });
+    //是实现点击左侧菜单栏，右侧内容页随之改变的效果，iframe中改变其src即可改变它加载的内容
+    function toIframe(url) {
+        $("#iframe-page-content").attr('src',url);
+    }
+</script>
+</html>

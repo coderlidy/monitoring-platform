@@ -15,7 +15,10 @@ public class IndexController {
     private UserMapper userMapper;
     @GetMapping("/")
     public String index(){
-
         return "index";
+    }
+    @GetMapping("/first")
+    public String first(){
+        return "first";
     }
 }

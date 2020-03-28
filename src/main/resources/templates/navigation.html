@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<body>
-    <ul th:fragment="nav" class="nav nav-pills nav-stacked admin-ul">
-        <li role="presentation"><a href="/map">位置地图</a></li>
-        <li role="presentation" ><a href="/admin">用户管理</a></li>
-        <li role="presentation" ><a href="/equipment">设备管理</a></li>
-        <li role="presentation"><a href="/log">日志管理</a></li>
-    </ul>
-
+<body th:fragment="nav">
+    <div id="logoDiv" class="logoDiv">
+        <p id="logoTitle" class="logoTitle">
+            <img id="logo" alt="左右布局" src="http://tool.what21.com/page/image/menu/cf.png"
+                 style="height: 28px; padding-right: 5px;vertical-align: middle;">
+            <span style="font-size:18px;">左右布局</span>
+        </p>
+    </div>
+    <div class="menu-title">数据可视</div>
+    <div class="menu-item" href="/map" data-toggle="tab">
+               位置地图
+    </div>
+    <div class="menu-title">数据管理</div>
+    <div class="menu-item" href="/admin" data-toggle="tab">
+        －用户管理
+    </div>
+    <div class="menu-item" href="/equipment" data-toggle="tab">
+        －设备管理
+    </div>
+    <div class="menu-item" href="/log" data-toggle="tab">
+        －日志管理
+    </div>
 </body>
 </html>
