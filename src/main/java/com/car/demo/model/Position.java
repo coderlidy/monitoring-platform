@@ -1,26 +1,27 @@
 package com.car.demo.model;
 
+import java.math.BigDecimal;
+
 public class Position {
-    private Double longitude;
-    private Double latitude;
-    public Position(Double longitude,Double latitude){
+    private String longitude;
+    private String latitude;
+    public Position(String longitude,String latitude){
         this.longitude=longitude;
         this.latitude=latitude;
     }
-
-    public Double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 
-    public Double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 }

@@ -4,9 +4,9 @@
     <title>Bootstrap布局</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet" media="screen">
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
     <style>
     body{
         margin:0;
@@ -95,8 +95,11 @@
             －位置地图
         </div>
         <div class="menu-title">数据管理</div>
-        <div class="menu-item" onclick="toIframe('/equipment')" >
+        <div class="menu-item" onclick="toIframe('/admin')" >
             －用户管理
+        </div>
+        <div class="menu-item" onclick="toIframe('/equipment')" >
+            －设备管理
         </div>
         <div class="menu-item" onclick="toIframe('/log')">
             －日志管理
