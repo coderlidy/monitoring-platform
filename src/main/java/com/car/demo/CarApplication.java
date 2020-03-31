@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ImportResource;
 
 import java.sql.Timestamp;
 
-@ImportResource("classpath:springAop.xml")
+//@ImportResource("classpath:springAop.xml")
 @SpringBootApplication
 public class CarApplication {
     public static void main(String[] args) {

@@ -28,6 +28,7 @@ public class InterceptorHandle implements HandlerInterceptor {
 //        System.out.println("用户客户端的IP地址："+request.getRemoteAddr());
 
         Cookie[] cookies =request.getCookies();
+        System.out.println(request.getHeader("Cookie"));
         int flag=0;
         String password=null;
         String username=null;
@@ -44,6 +45,7 @@ public class InterceptorHandle implements HandlerInterceptor {
                 if(flag>=2)break;
             }
             if (flag>=2 && userMapper.findPasswordByUsername(Long.valueOf(username)).equals(password)){
+                if(request.getRequestURI().equals("/"))response.sendRedirect(request.getContextPath()+"/first");
                 return true;//验证通过放行
             }
         }

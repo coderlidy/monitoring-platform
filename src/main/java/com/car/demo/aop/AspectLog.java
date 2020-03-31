@@ -12,7 +12,6 @@ public class AspectLog {
      * 必须为final String类型的,注解里要使用的变量只能是静态常量类型的
      */
     public static final String pointcut="execution(* com.car.demo.controller.IndexController..*(..))";
-
     /**
      * 切面的前置方法 即方法执行前拦截到的方法
      * 在目标方法执行之前的通知

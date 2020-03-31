@@ -9,5 +9,5 @@
     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
     <!-- 声明spring对@AspectJ的支持 -->
-    <aop:aspectj-autoproxy/>
+<!--    <aop:aspectj-autoproxy/>-->
 </beans>
