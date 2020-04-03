@@ -15,7 +15,7 @@ function login() {
                 document.getElementById("resultId").innerText=userBoxResult.message;
                 setTimeout(function () {
                     console.log(location.href);
-                    location.replace("/admin");
+                    location.replace("/first");
                 },1000);
             }else{
                 document.getElementById("resultId").innerText=userBoxResult.message;
