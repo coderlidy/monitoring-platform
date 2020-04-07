@@ -14,7 +14,7 @@ public interface CranenowMapper {
     @Select("SELECT * FROM cranenow  WHERE carNumber = (SELECT carNumber FROM crane WHERE username = #{username}) ORDER BY gmtCreate DESC LIMIT 1")
     Cranenow findByUsername(Long username);
     @Select("SELECT positions FROM (SELECT * FROM cranenow ORDER BY gmtCreate DESC) AS temp GROUP BY  carNumber")
-    List<String> findPositions();
+    List<String> findPositions();//查询最新日期所有起重机的位置信息行。
     @Insert("insert into cranenow (carNumber,positions,nowWeight,gmtCreate,gmtModified) values (#{carNumber},#{positions},#{nowWeight},#{gmtCreate},#{gmtModified})")
     Integer insert(Cranenow cranenow);
 

@@ -22,6 +22,7 @@ public class WebConfig implements WebMvcConfigurer {
         interceptorRegistration.excludePathPatterns(
                 "/wx/loginStatus",//微信登录判断
                 "/login",       //登录判断地址
+                "/logout",       //退出登录
                 "/**/*.html",            //html静态资源
                 "/**/*.js",              //js静态资源
                 "/**/*.css",            //css静态资源

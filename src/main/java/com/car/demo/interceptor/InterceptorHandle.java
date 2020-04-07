@@ -51,6 +51,7 @@ public class InterceptorHandle implements HandlerInterceptor {
         }
         if(request.getRequestURI().equals("/"))return true;//没有cookie或cookie验证失败，又是首页则放行
         response.sendRedirect(request.getContextPath()+"/");
+        System.out.println("----拦截----");
         return false;
     }
 

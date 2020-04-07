@@ -39,4 +39,16 @@ public class LoginController {
             return new ResultReturnDTO(0,"手机号或密码错误!");
         }
     }
+    @PostMapping("/logout")
+    public Object logout(HttpServletResponse response){
+        Cookie cookieUsername=new Cookie("loginUsername",null);
+        cookieUsername.setMaxAge(0);
+        cookieUsername.setPath("/");//项目所有目录均有效，这句很关键，否则不敢保证删除;如果不设置path，则path的默认值是发送cookie的Servlet应用的所在的路径
+        response.addCookie(cookieUsername);
+        Cookie cookiePassword=new Cookie("loginPassword",null);
+        cookieUsername.setPath("/");//项目所有目录均有效，这句很关键，否则不敢保证删除;如果不设置path，则path的默认值是发送cookie的Servlet应用的所在的路径
+        cookieUsername.setMaxAge(0);
+        response.addCookie(cookiePassword);
+        return null;
+    }
 }

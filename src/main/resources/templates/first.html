@@ -104,6 +104,9 @@
         <div class="menu-item" onclick="toIframe('/log')">
             －日志管理
         </div>
+        <div class="menu-item" onclick="login()" style="position: fixed;bottom: 0px;color: slategrey;width: inherit;">
+            &nbsp;&nbsp;&nbsp;退出登录
+        </div>
     </div>
     <!-- 右边内容 -->
     <div id="right" class="tab-content right">
@@ -141,5 +144,19 @@
     function toIframe(url) {
         $("#iframe-page-content").attr('src',url);
     }
+    //退出登录
+    function login() {
+        $.ajax({
+            type: "POST",
+            url: "/logout",
+            success: function () {
+                location.replace("/");
+            },
+            error:function () {
+                alert('网络错误!');
+            }
+        });
+    }
+
 </script>
 </html>
