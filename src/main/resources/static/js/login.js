@@ -1,4 +1,5 @@
 function login() {
+    console.log();
     $.ajax({
         type: "POST",
         url: "/login",
@@ -6,6 +7,7 @@ function login() {
         data: JSON.stringify({
             "username":document.getElementById("inputUsername").value,
             "password":document.getElementById("inputPassword").value,
+            "remember":$('#checkboxId').prop("checked"),
         }),
         dataType: "json",
         success: function (userBoxResult) {

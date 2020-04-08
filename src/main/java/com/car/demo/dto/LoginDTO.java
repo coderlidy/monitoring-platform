@@ -5,6 +5,15 @@ import lombok.Data;
 public class LoginDTO {
     private Long username;
     private String password;
+    private boolean remember=false;
+
+    public boolean isRemember() {
+        return remember;
+    }
+
+    public void setRemember(boolean remember) {
+        this.remember = remember;
+    }
 
     public Long getUsername() {
         return username;
