@@ -18,44 +18,12 @@ import java.util.Stack;
 
 @SpringBootTest
 class CarApplicationTests {
-    @Autowired
-    private PasswordCodeService passwordCodeService;
-    @Autowired
-    private CranenowMapper cranenowMapper;
+
     @Test
     public void test(){
         System.out.println(new Timestamp(System.currentTimeMillis()));
         System.out.println(new Timestamp(System.currentTimeMillis()+100000000));
         System.out.println(System.currentTimeMillis());
     }
-    @Test
-    public void insertCranenow(){
-        Cranenow cranenow=new Cranenow();
-        DecimalFormat df = new DecimalFormat("#.000000");
-        Random random=new Random();
-        List<Position> positionList=new ArrayList<>();
-        for (int i=0;i<10;i++){
-            String lon=df.format(114.331+random.nextInt(400)/100000.0);
-            String lat=df.format(30.508+random.nextInt(400)/100000.0);
-            positionList.add(new Position(lon,lat));
-        }
-        int r=random.nextInt(10);
-        System.out.println(new Timestamp(System.currentTimeMillis()+r*100000000));
-        System.out.println(new Timestamp(System.currentTimeMillis()+r*100000000+10000));
-        String po=JSON.toJSONString(positionList);
-        cranenow.setPositions(po);
-        cranenow.setCarNumber(Long.valueOf(10000+random.nextInt(20)));
-        cranenow.setNowWeight(Double.valueOf(7.6+random.nextInt(10)));
-        cranenow.setGmtCreate(new Timestamp(System.currentTimeMillis()+r*100000000));
-        cranenow.setGmtModified(new Timestamp(System.currentTimeMillis()+r*100000000+10000));
-        cranenowMapper.insert(cranenow);
-    }
 
-    @Test
-    public void insertAll(){
-        for (int i=0;i<100;i++){
-            insertCranenow();
-        }
-
-    }
 }

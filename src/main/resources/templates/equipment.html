@@ -44,6 +44,12 @@
             <td th:text="${craneDTO.useDay}"></td>
         </tr>
     </table>
+    <nav aria-label="...">
+        <ul class="pager">
+            <li><a th:if="${nowPage}-1>0" th:href="@{/equipment(page=${nowPage}-1)}">上一页</a></li>
+            <li><a th:if="${nowPage}+1<=${maxPage}" th:href="@{/equipment(page=${nowPage}+1)}">下一页</a></li>
+        </ul>
+    </nav>
 </div>
 </body>
 </html>

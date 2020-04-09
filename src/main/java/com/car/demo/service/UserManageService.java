@@ -17,8 +17,8 @@ public class UserManageService {
     private UserMapper userMapper;
     @Autowired
     private ConvertService convertService;
-    public List<UserDTO> findAll(){
-        List<User> users=userMapper.findAll();
+    public List<UserDTO> findAll(int index,int size){
+        List<User> users=userMapper.findAll(index,size);
         List<UserDTO> userDTOS =new ArrayList<>();
         for(User item:users){
             userDTOS.add(convertService.userToUserDTO(item));

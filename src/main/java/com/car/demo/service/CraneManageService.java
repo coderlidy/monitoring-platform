@@ -18,11 +18,9 @@ public class CraneManageService {
     @Autowired
     private CraneMapper craneMapper;
     @Autowired
-    private UserMapper userMapper;
-    @Autowired
     private ConvertService convertService;
-    public List<CraneDTO> findAll(){
-        List<Crane> craneList=craneMapper.findAll();
+    public List<CraneDTO> findAll(int index,int size){
+        List<Crane> craneList=craneMapper.findAll(index,size);
         List<CraneDTO> craneDTOList=new ArrayList<>();
         for (Crane item:craneList){
             craneDTOList.add(convertService.craneToCraneDTO(item));

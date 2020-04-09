@@ -1,6 +1,7 @@
 package com.car.demo.mapper;
 
 import com.car.demo.model.Crane;
+import com.car.demo.model.User;
 import org.apache.ibatis.annotations.*;
 
 import javax.jws.soap.SOAPBinding;
@@ -8,8 +9,10 @@ import java.util.List;
 
 @Mapper
 public interface CraneMapper {
-    @Select("select * from crane")
-    List<Crane> findAll();
+    @Select("select count(*) from crane")
+    int getCraneCount();
+    @Select("select * from crane limit #{index},#{size}")
+    List<Crane> findAll(int index, int size);
     @Select("select * from crane where username = #{username}")
     Crane findByUsername(Long username);
     @Select("select maxWeightCount from crane where username = #{username}")

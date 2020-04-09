@@ -7,8 +7,10 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-    @Select("select * from user")
-    List<User> findAll();
+    @Select("select * from user limit #{index},#{size}")
+    List<User> findAll(int index,int size);
+    @Select("select count(*) from user")
+    int getUserCount();
     @Select("select name from user where username = #{username} ")
     String findNameByUsername(Long username);
     @Select("select password from user where username = #{username} ")
