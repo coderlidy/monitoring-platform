@@ -9,9 +9,11 @@ import java.util.List;
 
 @Mapper
 public interface CraneMapper {
+    @Select("select carNumber from crane where id = #{id}")
+    Long findCarNumberById(@Param("id")Long idTest);//形参名和上面不一样要用@Param
     @Select("select count(*) from crane")
     int getCraneCount();
-    @Select("select * from crane limit #{index},#{size}")
+    @Select("select * from crane ORDER BY gmtCreate DESC limit #{index},#{size}")
     List<Crane> findAll(int index, int size);
     @Select("select * from crane where username = #{username}")
     Crane findByUsername(Long username);

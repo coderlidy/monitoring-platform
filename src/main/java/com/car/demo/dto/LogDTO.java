@@ -1,19 +1,15 @@
-package com.car.demo.model;
+package com.car.demo.dto;
 
 import java.sql.Timestamp;
 
-public class Log {
-    public static Long Goperator;
-    public static String Gip;
+public class LogDTO {
     private Long id;
     private Long operator;
     private String object;
     private String code;
     private String describe;
     private String ip;
-
-    private Timestamp gmtCreate;
-
+    private String gmtCreate;
     public Long getId() {
         return id;
     }
@@ -62,11 +58,15 @@ public class Log {
         this.ip = ip;
     }
 
-    public Timestamp getGmtCreate() {
+    public String getGmtCreate() {
         return gmtCreate;
     }
 
-    public void setGmtCreate(Timestamp gmtCreate) {
+    public void setGmtCreate(String gmtCreate) {
         this.gmtCreate = gmtCreate;
     }
+
+
+
+
 }

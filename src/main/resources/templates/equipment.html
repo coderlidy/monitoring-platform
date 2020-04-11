@@ -17,7 +17,7 @@
     <button th:onclick="addCrane('','','','','','','','','',1)" style="width:auto;">添加起重机</button>
     <table class="table table-hover">
         <tr>
-            <th>序号</th><th>起重机编号</th><th>起重机类型</th><th>驾驶员</th>
+            <th>起重机编号</th><th>起重机类型</th><th>驾驶员</th>
             <th>手机号</th><th>最大起吊重量</th><th>累计起吊重量</th><th>维修保养量程额度</th>
             <th>出厂日期</th><th>使用日期</th>
         </tr>
@@ -32,7 +32,6 @@
             [[${craneDTO.birthday}]],
             [[${craneDTO.useDay}]],
             3)">
-            <td th:text="${a.count}"></td>
             <td th:text="${craneDTO.carNumber}"></td>
             <td th:text="${craneDTO.carTypeNumber}"></td>
             <td th:text="${craneDTO.name}"></td>

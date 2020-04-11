@@ -1,6 +1,7 @@
 package com.car.demo.interceptor;
 
 import com.car.demo.mapper.UserMapper;
+import com.car.demo.model.Log;
 import com.car.demo.service.PasswordCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,12 +24,12 @@ public class InterceptorHandle implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
-            System.out.println("开始拦截.........");
+           // System.out.println("开始拦截.........");
 //        System.out.println("访问的Url中的服务器IP："+request.getServerName());
 //        System.out.println("用户客户端的IP地址："+request.getRemoteAddr());
-
+        Log.Gip=request.getRemoteAddr();
         Cookie[] cookies =request.getCookies();
-        System.out.println(request.getHeader("Cookie"));
+        //System.out.println(request.getHeader("Cookie"));
         int flag=0;
         String password=null;
         String username=null;
@@ -40,6 +41,7 @@ public class InterceptorHandle implements HandlerInterceptor {
                 }
                 if(cookie.getName().equals("loginUsername")){
                     username=cookie.getValue();
+                    Log.Goperator=Long.valueOf(username);
                     flag++;
                 }
                 if(flag>=2)break;

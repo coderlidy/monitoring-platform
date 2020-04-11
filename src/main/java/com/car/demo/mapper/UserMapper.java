@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-    @Select("select * from user limit #{index},#{size}")
+    @Select("select * from user ORDER BY gmtCreate DESC limit #{index},#{size}")
     List<User> findAll(int index,int size);
     @Select("select count(*) from user")
     int getUserCount();
@@ -17,8 +17,8 @@ public interface UserMapper {
     String findPasswordByUsername(Long username);
     @Select("select * from user where username = #{username} ")
     User findByUsername(Long username);
-    @Select("select * from user where id = #{id}")
-    User findById(@Param("id")Long idTest);//形参名和上面不一样要用@Param
+    @Select("select username from user where id = #{id}")
+    Long findUsernameById(@Param("id")Long idTest);//形参名和上面不一样要用@Param
     @Insert("insert into user (username,password,grade,name,age,gmtCreate,gmtModified) values (#{username},#{password},#{grade},#{name},#{age},#{gmtCreate},#{gmtModified})")
     Integer insert(User user);//形参是类不用加@Param
     @Update("update user set username=#{username},password=#{password},grade=#{grade},name=#{name},age=#{age},gmtModified=#{gmtModified} where id = #{id}")
