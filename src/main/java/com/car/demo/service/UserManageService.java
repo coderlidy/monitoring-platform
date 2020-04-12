@@ -25,6 +25,14 @@ public class UserManageService {
         }
         return userDTOS;
     }
+    public List<UserDTO> findSearch(String search,int index,int size){
+        List<User> users=userMapper.findSearch(search,index,size);
+        List<UserDTO> userDTOS =new ArrayList<>();
+        for(User item:users){
+            userDTOS.add(convertService.userToUserDTO(item));
+        }
+        return userDTOS;
+    }
     public ResultReturnDTO updateOrInsertById(UserDTO userDTO){
         User user=new User();
         user.setUsername(userDTO.getUsername());

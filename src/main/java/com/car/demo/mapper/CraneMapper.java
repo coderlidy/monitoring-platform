@@ -9,6 +9,10 @@ import java.util.List;
 
 @Mapper
 public interface CraneMapper {
+    @Select("select * from (SELECT * FROM crane WHERE CONCAT(IFNULL(`username`,''),IFNULL(`carNumber`,''),IFNULL(`carTypeNumber`,''),IFNULL(`maxLiftWeight`,'')) LIKE '%${search}%') AS temp ORDER BY gmtCreate DESC limit #{index},#{size}")
+    List<Crane> findSearch(String search,int index,int size);
+    @Select("SELECT count(*) FROM crane WHERE CONCAT(IFNULL(`username`,''),IFNULL(`carNumber`,''),IFNULL(`carTypeNumber`,''),IFNULL(`maxLiftWeight`,'')) LIKE '%${search}%'")
+    int getSearchCount(String search);
     @Select("select carNumber from crane where id = #{id}")
     Long findCarNumberById(@Param("id")Long idTest);//形参名和上面不一样要用@Param
     @Select("select count(*) from crane")

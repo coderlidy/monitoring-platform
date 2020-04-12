@@ -27,6 +27,14 @@ public class CraneManageService {
         }
         return craneDTOList;
     }
+    public List<CraneDTO> findCraneAll(String search,int index,int size){
+        List<Crane> craneList=craneMapper.findSearch(search,index,size);
+        List<CraneDTO> craneDTOList=new ArrayList<>();
+        for (Crane item:craneList){
+            craneDTOList.add(convertService.craneToCraneDTO(item));
+        }
+        return craneDTOList;
+    }
     public ResultReturnDTO updateOrInsertById(CraneDTO craneDTO){
         Crane crane=new Crane();
         crane.setUsername(craneDTO.getUsername());

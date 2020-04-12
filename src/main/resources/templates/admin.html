@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:float="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:float="http://www.w3.org/1999/xhtml" xmlns:right>
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
@@ -15,7 +15,15 @@
 <div class="wrap">
     <div th:insert="userBox :: userBox"></div>
     <div style="padding-left: 10px;">
-        <button th:onclick="addUser('','','','','','',1)" style="width:auto;">添加用户</button>
+        <form  action="/admin" method="get" class="" style="float: left;width: 40%;display:inline-block;">
+            <div class="input-group" >
+                <input type="text" class="form-control" name="search" placeholder="手机号/姓名/年龄" th:value="${search}">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn">搜索</button>
+                </span>
+            </div><!-- /input-group -->
+        </form>
+        <button th:onclick="addUser('','','','','','',1)" class="btn" style="float: right;width:15%;display:inline-block;margin-bottom: 8px;">添加用户</button>
         <table class="table table-hover">
             <tr>
                 <th>手机号</th><th>姓名</th><th>年龄</th><th>权限</th><th>修改时间</th><th>创建时间</th>
@@ -38,8 +46,8 @@
         </table>
         <nav aria-label="...">
             <ul class="pager">
-                <li><a th:if="${nowPage}-1>0" th:href="@{/admin(page=${nowPage}-1)}">上一页</a></li>
-                <li><a th:if="${nowPage}+1<=${maxPage}" th:href="@{/admin(page=${nowPage}+1)}">下一页</a></li>
+                <li><a th:if="${nowPage}-1>0" th:href="@{/admin(page=${nowPage}-1,search=${search})}">上一页</a></li>
+                <li><a th:if="${nowPage}+1<=${maxPage}" th:href="@{/admin(page=${nowPage}+1,search=${search})}">下一页</a></li>
             </ul>
         </nav>
     </div>

@@ -37,13 +37,22 @@ public class AdminController {
 
 
     @GetMapping("/admin")
-    public String findAllUser(Model model, @RequestParam(name="page",defaultValue = "1")Integer page){
+    public String findAllUser(Model model, @RequestParam(name="page",defaultValue = "1")Integer page,
+                              @RequestParam(name="search",defaultValue = "")String search){
         int size=12;
-        int count=userMapper.getUserCount();
+        int count;
+        if(search.isEmpty()){
+            count=userMapper.getUserCount();
+            model.addAttribute("userDTOS",userManageService.findAll((page-1)*12,size));
+        }
+        else{
+            count=userMapper.getSearchCount(search);
+            model.addAttribute("userDTOS",userManageService.findSearch(search,(page-1)*12,size));
+        }
+        model.addAttribute("search",search);
         model.addAttribute("nowPage",page);
         //返回合理的最大页数
         model.addAttribute("maxPage",count%size==0?count/size:count/size+1);
-        model.addAttribute("userDTOS",userManageService.findAll((page-1)*12,size));
         return "admin";
     }
 }

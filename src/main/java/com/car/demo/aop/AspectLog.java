@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 
@@ -69,6 +70,7 @@ public class AspectLog {
             }
         }
     }
+    @Transactional()
     @Before(pointcut)
     public void doBefore(JoinPoint jp){
         String methodName=jp.getSignature().getName();
@@ -85,52 +87,9 @@ public class AspectLog {
             log.setObject("用户"+craneMapper.findCarNumberById((Long) object));
         }
         log.setGmtCreate(new Timestamp(System.currentTimeMillis()));
+        log.setIp(Log.Gip);
+        log.setOperator(Log.Goperator);
         logMapper.insert(log);
         System.out.println(interfaceName+"."+methodName);
     }
-//
-//    /**
-//     * 最终通知：目标方法调用之后执行的通知（无论目标方法是否出现异常均执行）
-//     * @param jp
-//     */
-//    @After(value=pointcut)
-//    public void doAfter(JoinPoint jp){
-//        System.out.println("After");
-//    }
-//
-//    /**
-//     * 在目标方法非正常执行完成, 抛出异常的时候会走此方法
-//     * @param jp
-//     * @param ex
-//     */
-//    @AfterThrowing(value=pointcut,throwing="ex")
-//    public void doAfterThrowing(JoinPoint jp, Exception ex) {
-//        System.out.println("AfterThrowing");
-//    }
-//
-//    /**
-//     * 环绕通知：目标方法调用前后执行的通知，可以在方法调用前后完成自定义的行为。
-//     * @param pjp
-//     * @return
-//     * @throws Throwable
-//     */
-//    @Around(pointcut)
-//    public Object doAround(ProceedingJoinPoint pjp) throws Throwable{
-//
-//        System.out.println("Around开始");
-//        // 调用的方法名
-//        String method = pjp.getSignature().getClass();
-//        // 调用方法的参数
-//        Object[] args = pjp.getArgs();
-//
-//        // 获取目标对象
-//        Object target = pjp.getTarget();
-//        // 执行完方法的返回值
-//        // 调用proceed()方法，就会触发切入点方法执行
-//        Object result=pjp.proceed();
-//        System.out.println("输出,方法名：" + method + ";目标对象：" + target + ";返回值：" + result);
-//        System.out.println("Around结束");
-//        //result="admin";
-//        return result;
-//    }
 }

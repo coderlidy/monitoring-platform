@@ -7,8 +7,12 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
+    @Select("select * from (SELECT * FROM USER WHERE CONCAT(IFNULL(`username`,''),IFNULL(`name`,''),IFNULL(`age`,'')) LIKE '%${search}%') AS temp ORDER BY gmtCreate DESC limit #{index},#{size}")
+    List<User> findSearch(String search,int index,int size);
     @Select("select * from user ORDER BY gmtCreate DESC limit #{index},#{size}")
     List<User> findAll(int index,int size);
+    @Select("SELECT count(*) FROM USER WHERE CONCAT(IFNULL(`username`,''),IFNULL(`name`,''),IFNULL(`age`,'')) LIKE '%${search}%'")
+    int getSearchCount(String search);
     @Select("select count(*) from user")
     int getUserCount();
     @Select("select name from user where username = #{username} ")
