@@ -1,5 +1,7 @@
 package com.car.demo.controller;
 
+import com.car.demo.advice.exception.ExceptionMsg;
+import com.car.demo.advice.exception.MyException;
 import com.car.demo.dto.UserDTO;
 import com.car.demo.mapper.UserMapper;
 import com.car.demo.service.UserManageService;
@@ -7,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import static com.car.demo.advice.exception.ExceptionMsg.Page_OUT_INDEX;
 
 @Controller
 public class AdminController {
@@ -41,6 +45,7 @@ public class AdminController {
                               @RequestParam(name="search",defaultValue = "")String search){
         int size=12;
         int count;
+        if(page<1)throw new MyException(ExceptionMsg.Page_OUT_INDEX);
         if(search.isEmpty()){
             count=userMapper.getUserCount();
             model.addAttribute("userDTOS",userManageService.findAll((page-1)*12,size));
