@@ -1,0 +1,23 @@
+<!--pages/myCraneInfo/index.wxml-->
+<view class="page">
+    <view class="page__bd">
+        <mp-cells ext-class="my-cells" title="驾驶员">
+            <mp-cell value="姓名" footer="{{user.name}}"></mp-cell>
+            <mp-cell value="手机号" footer="{{user.username}}"></mp-cell>
+            <mp-cell value="年龄" footer="{{user.age}}岁"></mp-cell>
+            <mp-cell value="权限" footer="{{user.gradeName}}"></mp-cell>
+        </mp-cells>
+        <mp-cells ext-class="my-cells" title="起重机">
+            <mp-cell value="起重机类型" footer="{{crane.carTypeNumber}}"></mp-cell>
+            <mp-cell value="最大起吊重量" footer="{{crane.maxLiftWeight}}t"></mp-cell>
+            <mp-cell value="累计起吊重量" footer="{{crane.nowWeightCount}}t" ></mp-cell>
+            <mp-cell value="维修保养量程额度" footer="{{crane.maxWeightCount}}t"></mp-cell>
+            <mp-cell value="是否需要维修保养" footer="{{crane.isRepair}}"></mp-cell>
+            <mp-cell value="出厂日期" footer=" {{crane.birthday}}"></mp-cell>
+            <mp-cell value="使用日期" footer="{{crane.useDay}}"></mp-cell>
+        </mp-cells>
+    </view>
+</view>
+<view class='btn'>
+        <button bindtap="btnClick" form-type='button' type='primary' >退出账户</button>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents":{
+    "searchInput":"../../components/searchInput/searchInput"
+  },
+  "navigationBarTitleText": "起重机远程监控平台"
+}

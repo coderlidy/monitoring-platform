@@ -1,0 +1,14 @@
+<!--pages/cranenow/cranenow.wxml-->
+<view class="page__bd">
+        <mp-cells ext-class="my-cells" title="实时信息">
+            <mp-cell value="当前起吊重量" footer="{{crane.nowWeight}}t"></mp-cell>
+            <mp-cell value="最大起吊重量" footer="{{crane.maxLiftWeight}}t"></mp-cell>
+            <mp-cell value="状态" footer="{{crane.isSafe}}"></mp-cell>
+        </mp-cells>
+</view>
+<view>
+<mp-cells ext-class="my-cells" title="实时位置"></mp-cells>
+  <map class='map' id='myMap' setting="{{setting}}" markers="{{markers}}" polyline="{{polyline}}" longitude="{{longitude}}" latitude="{{latitude}}" style="width: 100%; height: 200px;" >
+  </map>
+  <button form-type='button' bindtap="btnClick" type='primary' style="width: 100%;">{{button.text}}</button>
+</view>

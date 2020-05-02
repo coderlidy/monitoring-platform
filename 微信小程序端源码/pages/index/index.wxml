@@ -1,0 +1,26 @@
+<!--pages/login/login.wxml-->
+<view class="page-body">
+  <form bindsubmit='formSubmit' bindreset='formReset' report-submit='true'>
+    <view class="page-section">
+        <view class="weui-cells__title">手机号{{flag}}</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input name="username" class="weui-input" type="number" placeholder="请输入手机号" />
+          </view>
+        </view>
+    </view>
+      <view class="page-section">
+        <view class="weui-cells__title">密码</view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <input name="password" class="weui-input"  type="password" placeholder="请输入密码" />
+            </view>
+          </view>
+      </view>
+      <view class='btn'>
+        <button form-type='submit' type='primary'>登录</button>
+      </view>
+  </form>
+</view>
+
+
