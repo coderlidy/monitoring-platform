@@ -5,19 +5,20 @@
 - 网页端：https://www.qiusuo.pub  
 - 微信小程序端：打开微信搜索小程序“起重机远程监控平台”  
 
-## 技术栈
+## 技术栈/工具
 
-|类型|实现|
-|:--:|:--:|
-|开发工具|IDEA/微信开发者工具|
-|开发框架|Spring Boot|
-|前端模板引擎|Thymeleaf|
-|前端渲染框架|Bootstrap|
-|持久层框架|MyBatis|
-|数据库|MySQL|
-|服务器|Nginx|
-## 功能模块
+<table><tbody>
+<tr><td>开发工具</td><td>IDEA/微信开发者工具</td></tr>
+<tr><td>开发框架</td><td>Spring Boot</td></tr>
+<tr><td>前端模板引擎</td><td>Thymeleaf</td></tr>
+<tr><td>前端渲染框架</td><td>Bootstrap</td></tr>
+<tr><td>持久层框架</td><td>MyBatis</td></tr>
+<tr><td>数据库</td><td>MySQL</td></tr>
+<tr><td>服务器</td><td>Nginx</td></tr>
+</tbody></table>
 
+功能模块
+----
 1.	实时定位：通过实时定位，厂家掌握各区域的销售使用状态，配备合理的售后服务人员和推广人员。
 2.	起吊称重：实时计算起吊过程中货物的重量，为相关服务提供数据支撑。
 3.	超重报警：针对起吊过程中，起吊的货物如果超过吊车量程范围的，及时提供报警信息，降低超重风险。
