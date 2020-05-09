@@ -3,7 +3,7 @@ package com.car.demo.service;
 import org.springframework.stereotype.Service;
 
 /**
- * cookie字符串加密解密模型
+ * cookie字符串加密解密模型 适用于符号、数字、字母，不适用于中文
  */
 @Service
 public class PasswordCodeService {
@@ -17,7 +17,7 @@ public class PasswordCodeService {
         byte[] b = data.getBytes();
         //遍历
         for(int i=0;i<b.length;i++) {
-            b[i] -= 1;//在原有的基础上-1
+            b[i] -= b.length%3*2-i;//在原有的基础上- b.length%3*2-i
         }
         return new String(b);
     }
@@ -31,7 +31,7 @@ public class PasswordCodeService {
         byte[] b = data.getBytes();
         //遍历
         for(int i=0;i<b.length;i++) {
-            b[i] += 1;//在原有的基础上+1
+            b[i] += b.length%3*2-i;//在原有的基础上+ b.length%3*2-i
         }
         return new String(b);
     }
