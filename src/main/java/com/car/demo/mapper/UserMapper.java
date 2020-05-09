@@ -17,6 +17,8 @@ public interface UserMapper {
     int getUserCount();
     @Select("select name from user where username = #{username} ")
     String findNameByUsername(Long username);
+    @Select("select grade from user where username = #{username} ")
+    int findGradeByUsername(Long username);
     @Select("select password from user where username = #{username} ")
     String findPasswordByUsername(Long username);
     @Select("select * from user where username = #{username} ")
