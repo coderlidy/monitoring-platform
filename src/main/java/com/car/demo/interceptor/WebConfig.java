@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * 拦截器路径配置(注册拦截器并添加拦截路径)
  */
-@Configuration
+//@Configuration
 public class WebConfig implements WebMvcConfigurer {
     @Autowired
     private InterceptorHandle interceptorHandle;

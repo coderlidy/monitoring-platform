@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>websocket通讯</title>
+</head>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script>
+    var socket=null;
+    function openSocket() {
+        if(typeof(WebSocket) == "undefined") {
+            console.log("您的浏览器不支持WebSocket");
+        }else{
+            console.log("您的浏览器支持WebSocket");
+            if(socket==null || socket.readyState==WebSocket.CLOSED)socket = new WebSocket("ws://localhost:8080/websocket/"+$("#userId").val());
+            switch (socket.readyState) {
+                case WebSocket.CONNECTING:
+                    console.log("WebSocket状态：正在连接");
+                    break;
+                case WebSocket.OPEN:
+                    console.log("WebSocket状态：连接成功");
+                    break;
+                case WebSocket.CLOSING:
+                    console.log("WebSocket状态：连接正在关闭");
+                    break;
+                case WebSocket.CLOSED:
+                    console.log("WebSocket状态：连接已经关闭，或者打开连接失败");
+                    break;
+                default:
+                    console.log("WebSocket状态：无法获取");
+                    break;
+            }
+            //打开事件
+            socket.onopen = function() {
+                console.log("websocket已打开");
+            };
+            //获得消息事件
+            socket.onmessage = function(msg) {
+                console.log(msg);
+                console.log(msg.data);
+                //发现消息进入    开始处理前端触发逻辑
+            };
+            //关闭事件
+            socket.onclose = function() {
+                console.log("websocket已关闭");
+            };
+            //发生了错误事件
+            socket.onerror = function() {
+                console.log("websocket发生了错误");
+            }
+        }
+    }
+    function sendMessage() {
+        if(typeof(WebSocket) == "undefined") {
+            console.log("您的浏览器不支持WebSocket");
+        }else {
+            console.log("您的浏览器支持WebSocket");
+            socket.send('{"toUserId":"'+$("#toUserId").val()+'","contentText":"'+$("#contentText").val()+'","isTarget":"true"}');
+        }
+    }
+</script>
+<body>
+<p>【userId】：<div><input id="userId" name="userId" type="text" value="10"></div>
+<p>【toUserId】：<div><input id="toUserId" name="toUserId" type="text" value="20"></div>
+<p>【发送文本】：<div><input id="contentText" name="contentText" type="text" value="hello websocket"></div>
+
+<p>【操作】：<div><a onclick="openSocket()">开启socket</a></div>
+<p>【操作】：<div><a onclick="sendMessage()">发送消息</a></div>
+</body>
+
+</html>
