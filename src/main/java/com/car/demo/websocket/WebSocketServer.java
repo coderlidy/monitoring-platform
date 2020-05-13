@@ -67,7 +67,9 @@ public class WebSocketServer {
         //判断是否需要指定发送，具体规则自定义
         Entity entity= (Entity)JSON.parseObject(message,Entity.class);
         if(entity.isTarget()){
-            AppointSending(entity.getToUserId(),entity.getContentText());
+            while (true){
+                AppointSending(entity.getToUserId(),entity.getContentText());
+            }
         }else{
             GroupSending(message);
         }
