@@ -1,7 +1,7 @@
 package com.car.demo.controller;
 
-import com.car.demo.advice.exception.ExceptionMsg;
-import com.car.demo.advice.exception.MyException;
+import com.car.demo.exception.ExceptionMsg;
+import com.car.demo.exception.MyException;
 import com.car.demo.dto.UserDTO;
 import com.car.demo.mapper.UserMapper;
 import com.car.demo.service.UserManageService;
@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import static com.car.demo.advice.exception.ExceptionMsg.Page_OUT_INDEX;
 
 @Controller
 public class AdminController {

@@ -1,4 +1,4 @@
-package com.car.demo.advice.exception;
+package com.car.demo.exception;
 
 public class MyException extends RuntimeException {
     private Integer code;

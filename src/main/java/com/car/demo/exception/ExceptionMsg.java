@@ -1,4 +1,4 @@
-package com.car.demo.advice.exception;
+package com.car.demo.exception;
 
 public enum ExceptionMsg implements IMyException {
     ERROR(2000,"未知错误"),

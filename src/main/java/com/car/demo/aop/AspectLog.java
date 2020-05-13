@@ -75,7 +75,7 @@ public class AspectLog {
     public void doBefore(JoinPoint jp){
         String methodName=jp.getSignature().getName();
         String interfaceName=jp.getTarget().getClass().getInterfaces()[0].getSimpleName();
-        System.out.println(jp.getTarget().getClass().getInterfaces());
+        System.out.println(jp.getTarget().getClass().getName());
         Object[] args=jp.getArgs();
         Log log=new Log();
         if(args.length<1 || !methodName.startsWith("delete"))return;

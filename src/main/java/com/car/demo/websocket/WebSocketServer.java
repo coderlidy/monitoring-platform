@@ -69,6 +69,7 @@ public class WebSocketServer {
         if(entity.isTarget()){
             while (true){
                 AppointSending(entity.getToUserId(),entity.getContentText());
+
             }
         }else{
             GroupSending(message);

@@ -1,6 +1,5 @@
-package com.car.demo.advice;
+package com.car.demo.exception;
 
-import com.car.demo.advice.exception.MyException;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
