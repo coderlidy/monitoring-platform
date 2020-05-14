@@ -24,7 +24,7 @@ public class IndexController {
         return "first";
     }
     @GetMapping("ws")
-    public String page(){
+    public String websocket(){
         return "websocket";
     }
 }
