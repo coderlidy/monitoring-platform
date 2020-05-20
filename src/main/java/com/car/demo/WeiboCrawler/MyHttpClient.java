@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.*;
-//封装的网络请求
+//httpclient封装请求
 //Jsoup的API文档 https://jsoup.org/apidocs/org/jsoup
 public class MyHttpClient {
     public enum METHOD{
@@ -29,10 +29,10 @@ public class MyHttpClient {
     private static final int CONNECT_TIMEOUT = 6000;
 
     // 请求获取数据的超时时间(即响应时间)，单位毫秒。
-    private static final int SOCKET_TIMEOUT = 6000;
+    private static final int SOCKET_TIMEOUT = 60000;
     public static String getByParams(String url,Map<String, String> headers,Map<String, String> params) {
-        //if (headers==null)headers=new HashMap<String, String>();
-        //headers.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36");
+        if (headers==null)headers=new HashMap<String, String>();
+        headers.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36");
         //headers.put("Cookie", "SUB=_2AkMp4Jycf8NxqwJRmfgSzWPgbolyzADEieKfvG1HJRMxHRl-yT9kqkMstRB6AmCyc1qs6jjJXXWiOdqb1DF7os18BiYL; SUBP=0033WrSXqPxfM72-Ws9jqgMF55529P9D9Whu7HYOecfET3LuNkN8RDAH; YF-Page-G0=753ea17f0c76317e0e3d9670fa168584|1589384107|1589384103; _s_tentry=passport.weibo.com; Apache=5552095980252.369.1589384109651; SINAGLOBAL=5552095980252.369.1589384109651; ULV=1589384109797:1:1:1:5552095980252.369.1589384109651:; login_sid_t=63d66287d4427ab6712c0a6a82f40e90; cross_origin_proto=SSL; Ugrow-G0=cf25a00b541269674d0feadd72dce35f; YF-V5-G0=2583080cfb7221db1341f7a137b6762e; wb_view_log=1366*7681; UOR=,,www.baidu.com");
 
         return request(url,headers,params,null, METHOD.get);
@@ -74,10 +74,12 @@ public class MyHttpClient {
              */
             RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(CONNECT_TIMEOUT).setSocketTimeout(SOCKET_TIMEOUT).build();
             httpMethod.setConfig(requestConfig);
+            //设置请求头，反爬虫
+            httpMethod.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36");
             //执行请求并获得响应结果
             httpResponse = httpClient.execute(httpMethod);
             if (httpResponse != null && httpResponse.getStatusLine() != null) {
-                System.out.println(httpResponse.getStatusLine().getStatusCode());
+                //System.out.println(httpResponse.getStatusLine().getStatusCode());
                 //如果响应体存在
                 if (httpResponse.getEntity() != null) {
                     //获得response数据的回复体，将其转换为byte
@@ -86,7 +88,7 @@ public class MyHttpClient {
                     FileOutputStream fos = new FileOutputStream(file);
                     fos.write(bytes);
                     fos.close();
-                    System.out.println(bytes);
+                    //System.out.println(bytes);
                     return path;
                 }
             }
@@ -180,7 +182,8 @@ public class MyHttpClient {
             //执行请求并获得响应结果
             httpResponse = httpClient.execute(httpMethod);
             if (httpResponse != null && httpResponse.getStatusLine() != null) {
-                System.out.println(httpResponse.getStatusLine().getStatusCode());
+                if(httpResponse.getStatusLine().getStatusCode()==418)throw new Exception("418:请求被反爬虫了！");
+                //System.out.println(httpResponse.getStatusLine().getStatusCode());
                 //如果响应体存在
                 if (httpResponse.getEntity() != null) {
                     content = EntityUtils.toString(httpResponse.getEntity(), ENCODING);

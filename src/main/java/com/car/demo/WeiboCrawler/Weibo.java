@@ -7,14 +7,12 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-//爬取指定用户所有原创图片
-//https://m.weibo.cn/
-public class Weibo {
+//微博图片爬虫单线程版 爬取地址：https://m.weibo.cn/
+public class Weibo implements Runnable{
     private String uid;
     private String uname;
     private String fans;
-    private static int picNum;
-    private static int picReweetedNum;//转载的图片
+    private static int picNum=0;
     private static int page;
     private static String original_pic;
     public Weibo(String uid,String uname,String fans){
@@ -22,13 +20,28 @@ public class Weibo {
         this.uname=uname;
         this.fans=fans;
     }
+    private int taskNum;
+
+    public Weibo(int num) {
+        this.taskNum = num;
+    }
+
+    public void run() {
+        System.out.println("正在执行task "+taskNum);
+
+        System.out.println("task "+taskNum+"执行完毕");
+    }
+
+    public static void main(String[] args){
+        getUserAllPic("1749127163");
+        getUserList("雷军");
+    }
     public static void getUserAllPic(String uid){
-        picNum=0;
         String containerid="230413"+ uid;
         try{
-            for(int i=0;;i++){
-                getUserPic("https://m.weibo.cn/api/container/getIndex?containerid="+containerid+"&page="+i);
-                page=i;
+            for(page=1;;page++){
+                getUserPic("https://m.weibo.cn/api/container/getIndex?containerid="+containerid+"&page="+page);
+                System.out.println("---------------------------------------------------------");
             }
         }catch (NullPointerException e){
             e.printStackTrace();
@@ -53,7 +66,7 @@ public class Weibo {
             if(pics==null)continue;
             for(int j=0;j<pics.size();j++){
                 original_pic=pics.getJSONObject(j).getString("url").replaceFirst("orj360","large");
-                if(original_pic!=null)MyHttpClient.getPic(original_pic,"image\\原图"+(++picNum)+".jpg");
+                if(original_pic!=null)MyHttpClient.getPic(original_pic,"image\\原图"+(++picNum)+original_pic.substring(original_pic.length()-4));
                 System.out.println(original_pic);
                 System.out.println("图片数："+picNum);
                 System.out.println("页数："+page);
@@ -81,6 +94,7 @@ public class Weibo {
                 JSONObject user=card_group.getJSONObject(i).getJSONObject("user");
                 Weibo weibo=new Weibo(user.getString("id"),user.getString("screen_name"),user.getString("followers_count"));
                 weiboList.add(weibo);
+                System.out.println("用户："+weibo.uname+"|粉丝数："+weibo.fans+"|id："+weibo.uid);
             }
             return weiboList;
         }
