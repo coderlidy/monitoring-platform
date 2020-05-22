@@ -1,0 +1,52 @@
+2020-05-22 16:43:11.601  INFO 19880 --- [main] com.car.demo.CarApplication              : Starting CarApplication on XTZJ-2019LZRMWW with PID 19880 (C:\JavaItem\university\car\target\classes started by Administrator in C:\JavaItem\university\car)
+2020-05-22 16:43:11.615  INFO 19880 --- [main] com.car.demo.CarApplication              : No active profile set, falling back to default profiles: default
+2020-05-22 16:43:14.076  INFO 19880 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-05-22 16:43:14.090  INFO 19880 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-22 16:43:14.092  INFO 19880 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-05-22 16:43:14.244  INFO 19880 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-22 16:43:14.244  INFO 19880 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2488 ms
+2020-05-22 16:43:14.840  INFO 19880 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-22 16:43:14.963  INFO 19880 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-05-22 16:43:15.416  INFO 19880 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-22 16:43:15.420  INFO 19880 --- [main] com.car.demo.CarApplication              : Started CarApplication in 4.585 seconds (JVM running for 6.509)
+2020-05-22 16:45:43.257  INFO 19880 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-22 16:45:43.257  INFO 19880 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-22 16:45:43.272  INFO 19880 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2020-05-22 16:45:43.307  INFO 19880 --- [http-nio-8080-exec-1] com.car.demo.controller.IndexController  : 还好意思讲
+2020-05-22 17:10:49.067  INFO 13552 --- [main] com.car.demo.CarApplication              : Starting CarApplication on XTZJ-2019LZRMWW with PID 13552 (C:\JavaItem\university\car\target\classes started by Administrator in C:\JavaItem\university\car)
+2020-05-22 17:10:49.099  INFO 13552 --- [main] com.car.demo.CarApplication              : No active profile set, falling back to default profiles: default
+2020-05-22 17:10:52.351  INFO 13552 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-05-22 17:10:52.366  INFO 13552 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-22 17:10:52.367  INFO 13552 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-05-22 17:10:52.519  INFO 13552 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-22 17:10:52.520  INFO 13552 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3309 ms
+2020-05-22 17:10:53.230  INFO 13552 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-22 17:10:53.365  INFO 13552 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-05-22 17:10:53.950  INFO 13552 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-22 17:10:53.955  INFO 13552 --- [main] com.car.demo.CarApplication              : Started CarApplication in 5.691 seconds (JVM running for 7.202)
+2020-05-22 17:11:25.979  INFO 13552 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-22 17:11:25.980  INFO 13552 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-22 17:11:25.993  INFO 13552 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-05-22 17:11:26.022  INFO 13552 --- [http-nio-8080-exec-1] com.car.demo.controller.IndexController  : 还好意思讲
+2020-05-22 17:40:45.921  INFO 5880 --- [main] com.car.demo.CarApplication              : Starting CarApplication on XTZJ-2019LZRMWW with PID 5880 (C:\JavaItem\university\car\target\classes started by Administrator in C:\JavaItem\university\car)
+2020-05-22 17:40:45.926  INFO 5880 --- [main] com.car.demo.CarApplication              : No active profile set, falling back to default profiles: default
+2020-05-22 17:40:48.079  INFO 5880 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-05-22 17:40:48.093  INFO 5880 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-22 17:40:48.093  INFO 5880 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-05-22 17:40:48.216  INFO 5880 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-22 17:40:48.217  INFO 5880 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2171 ms
+2020-05-22 17:40:48.955  INFO 5880 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-22 17:40:49.066  INFO 5880 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-05-22 17:40:51.047  INFO 5880 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-22 17:40:51.052  INFO 5880 --- [main] com.car.demo.CarApplication              : Started CarApplication in 6.022 seconds (JVM running for 9.024)
+2020-05-22 17:45:04.349  INFO 2060 --- [main] com.car.demo.CarApplication              : Starting CarApplication on XTZJ-2019LZRMWW with PID 2060 (C:\JavaItem\university\car\target\classes started by Administrator in C:\JavaItem\university\car)
+2020-05-22 17:45:04.361  INFO 2060 --- [main] com.car.demo.CarApplication              : No active profile set, falling back to default profiles: default
+2020-05-22 17:45:06.910  INFO 2060 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-05-22 17:45:06.926  INFO 2060 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-22 17:45:06.927  INFO 2060 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-05-22 17:45:07.090  INFO 2060 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-22 17:45:07.091  INFO 2060 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2575 ms
+2020-05-22 17:45:07.851  INFO 2060 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-22 17:45:07.989  INFO 2060 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-05-22 17:45:08.471  INFO 2060 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-22 17:45:08.474  INFO 2060 --- [main] com.car.demo.CarApplication              : Started CarApplication in 4.834 seconds (JVM running for 7.293)

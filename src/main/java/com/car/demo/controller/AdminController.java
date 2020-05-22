@@ -5,11 +5,12 @@ import com.car.demo.exception.MyException;
 import com.car.demo.dto.UserDTO;
 import com.car.demo.mapper.UserMapper;
 import com.car.demo.service.UserManageService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
+@Slf4j
 @Controller
 public class AdminController {
     @Autowired
@@ -43,7 +44,10 @@ public class AdminController {
                               @RequestParam(name="search",defaultValue = "")String search){
         int size=12;
         int count;
-        if(page<1)throw new MyException(ExceptionMsg.Page_OUT_INDEX);
+        if(page<1){
+            log.error("页数索引小于1");
+            throw new MyException(ExceptionMsg.Page_OUT_INDEX);
+        }
         if(search.isEmpty()){
             count=userMapper.getUserCount();
             model.addAttribute("userDTOS",userManageService.findAll((page-1)*12,size));
