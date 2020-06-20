@@ -8,7 +8,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 //微博图片爬虫单线程版 爬取地址：https://m.weibo.cn/
-public class Weibo implements Runnable{
+public class Weibo{
     private String uid;
     private String uname;
     private String fans;
@@ -20,21 +20,10 @@ public class Weibo implements Runnable{
         this.uname=uname;
         this.fans=fans;
     }
-    private int taskNum;
-
-    public Weibo(int num) {
-        this.taskNum = num;
-    }
-
-    public void run() {
-        System.out.println("正在执行task "+taskNum);
-
-        System.out.println("task "+taskNum+"执行完毕");
-    }
 
     public static void main(String[] args){
-        getUserAllPic("1749127163");
-        getUserList("雷军");
+        getUserAllPic("");
+        //getUserList("");
     }
     public static void getUserAllPic(String uid){
         String containerid="230413"+ uid;
